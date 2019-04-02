@@ -1,21 +1,15 @@
 import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
+
+import Header from "./header/index";
 import "./App.css";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <header>
-          <a href="https://reactjs.org/" target="_blank">
-            <img
-              src="./img/logo.svg"
-              width="64"
-              height="64"
-              className="App-logo"
-            />
-          </a>
-        </header>
-      </div>
+      <React.Fragment>
+        <Header />
+      </React.Fragment>
     );
   }
 }
