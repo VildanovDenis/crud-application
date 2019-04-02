@@ -15,7 +15,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 600px;
-  padding: 40px;
+  padding: 60px 40px 40px;
   border-radius: 15px;
   background-color: #20232a;
   color: white;
@@ -38,6 +38,8 @@
   border: none;
   padding: 5px;
   border-radius: 5px;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
 }
 .game-modal textarea {
   min-height: 120px;
@@ -50,7 +52,4 @@
   margin: 0 auto;
   background-color: transparent;
   color: white;
-}
-.game-modal__files {
-  border: none;
 }

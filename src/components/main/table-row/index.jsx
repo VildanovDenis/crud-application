@@ -3,17 +3,40 @@ import React from "react";
 class TableRow extends React.Component {
   constructor(props) {
     super(props);
+
+    this.onDeleteGameClick = this.onDeleteGameClick.bind(this);
+    this.onEditGameClick = this.onEditGameClick.bind(this);
   }
+
+  onDeleteGameClick() {
+    const { id } = this.props.game;
+    this.props.onDeleteButtonClick(id);
+  }
+
+  onEditGameClick() {
+    const { game } = this.props;
+    this.props.onEditButtonClick(game);
+  }
+
   render() {
+    const { title } = this.props.game;
+
     return (
       <tr>
-        <td>{this.props.id}</td>
-        <td>{this.props.name}</td>
-        <td>
-          <button type="button" className="table-btn table-edit-btn" />
+        <td className="games-table__game-name">{title}</td>
+        <td className="games-table__table-btns">
+          <button
+            type="button"
+            className="table-btn table-edit-btn"
+            onClick={this.onEditGameClick}
+          />
         </td>
-        <td>
-          <button type="button" className="table-btn table-delete-btn" />
+        <td className="games-table__table-btns">
+          <button
+            type="button"
+            className="table-btn table-delete-btn"
+            onClick={this.onDeleteGameClick}
+          />
         </td>
       </tr>
     );

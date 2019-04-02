@@ -2,6 +2,9 @@ import React from "react";
 
 import "./index.css";
 
+/**
+ * Футер страницы
+ */
 class Footer extends React.Component {
   render() {
     return (
@@ -21,7 +24,7 @@ class Footer extends React.Component {
         </a>
         <div className="autor">
           <h2 className="footer-title">Crud app</h2>
-          <p>написано Денисом Вильдановым</p>
+          <p>Автор: Денис Вильданов</p>
           <a
             href="https://github.com/VildanovDenis?tab=repositories"
             target="_blank"

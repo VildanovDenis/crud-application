@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 import "./index.css";
 
+/**
+ * Шапка страницы
+ */
 class Header extends React.Component {
   render() {
     return (
