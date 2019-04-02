@@ -37,7 +37,7 @@ class Header extends React.Component {
             </Link>
           </li>
         </ul>
-        <div class="app-search">
+        <div className="app-search">
           <input type="search" placeholder="Поиск" />
         </div>
       </header>
