@@ -26,6 +26,10 @@
 }
 .app-navbar__link {
   color: white;
+  transition: 0.3s;
+}
+.app-navbar__link:hover {
+  color: #61dbfb;
 }
 .app-search input {
   padding: 5px 10px;

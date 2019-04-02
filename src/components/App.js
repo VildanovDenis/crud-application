@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./header/index";
 import GamesList from "./main/index";
 import "./App.css";
+import Footer from "./footer";
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
       <React.Fragment>
         <Header />
         <GamesList />
+        <Footer />
       </React.Fragment>
     );
   }
