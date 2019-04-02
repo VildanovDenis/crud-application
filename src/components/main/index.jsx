@@ -2,10 +2,28 @@ import React from "react";
 
 import TableHead from "./table-head/index";
 import TableRow from "./table-row/index";
-import pencil from "./pencil.svg";
 import "./index.css";
+import Popup from "./popup";
 
 class GamesList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isPopupShown: false
+    };
+
+    this.onAddButtonClick = this.onAddButtonClick.bind(this);
+    this.onCloseModalClick = this.onCloseModalClick.bind(this);
+  }
+
+  onAddButtonClick() {
+    this.setState({ isPopupShown: true });
+  }
+
+  onCloseModalClick() {
+    this.setState({ isPopupShown: false });
+  }
+
   render() {
     const games = [
       {
@@ -126,13 +144,16 @@ class GamesList extends React.Component {
         <h2 className="games-table-title">Список популярных игр</h2>
         <table className="games-table">
           <tbody>
-            <TableHead />
+            <TableHead onAddButtonClick={this.onAddButtonClick} />
             {games.map(game => {
               console.log(game);
               return <TableRow name={game.title} id={game.id} key={game.id} />;
             })}
           </tbody>
         </table>
+        {this.state.isPopupShown ? (
+          <Popup onCloseModalClick={this.onCloseModalClick} />
+        ) : null}
       </div>
     );
   }

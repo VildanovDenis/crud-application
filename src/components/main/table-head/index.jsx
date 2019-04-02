@@ -8,7 +8,11 @@ class TableHead extends React.Component {
         <th>Название</th>
         <th />
         <th>
-          <button type="button" className="table-btn table-add-btn" />
+          <button
+            type="button"
+            className="table-btn table-add-btn"
+            onClick={this.props.onAddButtonClick}
+          />
         </th>
       </tr>
     );
