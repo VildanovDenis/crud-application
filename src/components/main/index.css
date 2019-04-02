@@ -1,5 +1,6 @@
 .games-table-wrapper {
   max-width: 1000px;
+  min-height: 600px;
   padding: 40px;
   margin: 0 auto;
   color: #20232a;
@@ -43,4 +44,7 @@
 }
 .table-delete-btn {
   background-image: url(./trash.svg);
+}
+.table-add-btn {
+  background-image: url(./plus.svg);
 }

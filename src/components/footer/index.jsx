@@ -22,7 +22,10 @@ class Footer extends React.Component {
         <div className="autor">
           <h2 className="footer-title">Crud app</h2>
           <p>написано Денисом Вильдановым</p>
-          <a href="github.com/VildanovDenis" target="_blank">
+          <a
+            href="https://github.com/VildanovDenis?tab=repositories"
+            target="_blank"
+          >
             GitHub
           </a>
         </div>
