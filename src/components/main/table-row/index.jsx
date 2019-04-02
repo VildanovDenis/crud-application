@@ -9,7 +9,12 @@ class TableRow extends React.Component {
       <tr>
         <td>{this.props.id}</td>
         <td>{this.props.name}</td>
-        <td />
+        <td>
+          <button type="button" className="table-btn table-edit-btn" />
+        </td>
+        <td>
+          <button type="button" className="table-btn table-delete-btn" />
+        </td>
       </tr>
     );
   }

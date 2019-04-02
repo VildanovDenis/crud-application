@@ -7,7 +7,6 @@ export default function TableHead() {
       <th>Название</th>
       <th />
       <th />
-      <th />
     </tr>
   );
 }

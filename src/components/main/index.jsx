@@ -2,6 +2,7 @@ import React from "react";
 
 import TableHead from "./table-head/index";
 import TableRow from "./table-row/index";
+import pencil from "./pencil.svg";
 import "./index.css";
 
 class GamesList extends React.Component {
