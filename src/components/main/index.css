@@ -53,3 +53,24 @@
 .table-add-btn {
   background-image: url(./plus.svg);
 }
+@media (max-width: 620px) {
+  .table-edit-btn,
+  .table-add-btn {
+    display: none;
+  }
+}
+@media (max-width: 455px) {
+  .games-table {
+    font-size: 14px;
+  }
+}
+@media (max-width: 410px) {
+  .games-table {
+    font-size: 12px;
+  }
+}
+@media (max-width: 380px) {
+  .games-table-title {
+    font-size: 20px;
+  }
+}

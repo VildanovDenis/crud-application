@@ -44,3 +44,23 @@
 .app-search input:focus {
   background-color: #373940;
 }
+
+@media (max-width: 850px) {
+  .app-navbar {
+    width: 50%;
+    margin-left: auto;
+  }
+  .app-search input {
+    display: none;
+  }
+}
+@media (max-width: 550px) {
+  .app-navbar {
+    flex-direction: column;
+    text-align: right;
+    padding: 10px 0px;
+  }
+  .app-navbar li {
+    margin-bottom: 5px;
+  }
+}
