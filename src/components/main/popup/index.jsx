@@ -6,9 +6,9 @@ class Popup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      gameName: "",
+      gameName: props.game.title || "",
       gameDescription: props.game.description || "",
-      gameLink: ""
+      gameLink: props.game.link || ""
     };
 
     this.onNameInputChange = this.onNameInputChange.bind(this);
@@ -39,15 +39,14 @@ class Popup extends React.Component {
     const game = {
       id: this.props.game.id,
       title: this.state.gameName,
-      description: this.state.description,
-      link: this.state.link
+      description: this.state.gameDescription,
+      link: this.state.gameLink
     };
 
     this.props.onSaveButtonClick(game);
   }
 
   render() {
-    const { title, link, description } = this.props.game;
     return (
       <div
         className="game-modal-wrapper"
@@ -62,13 +61,13 @@ class Popup extends React.Component {
           <input
             type="text"
             placeholder="Название игры"
-            value={title}
+            value={this.state.gameName}
             onChange={this.onNameInputChange}
           />
           <input
             type="text"
             placeholder="Ссылка на игру"
-            value={link}
+            value={this.state.gameLink}
             onChange={this.onLinkInputChange}
           />
           <textarea
@@ -93,22 +92,5 @@ class Popup extends React.Component {
     );
   }
 }
-export default Popup;
 
-{
-  /* <
-          <img
-            src={this.props.img}
-            alt={this.props.title}
-            className="game-modal__image"
-          />
-          <div className="game-modal__info">
-            <h2 className="game-modal__title">{this.props.title}</h2>
-            <p className="game-modal__description">{this.props.description}</p>
-            <a href={this.props.link} target="_blank">
-              Узнать больше
-            </a>
-          </div>
-          
-        */
-}
+export default Popup;

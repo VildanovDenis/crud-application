@@ -30,7 +30,6 @@ class GamesList extends React.Component {
       isPopupShown: true,
       activeGame: game
     });
-    console.log(game);
   }
 
   onCloseModalClick() {
@@ -38,24 +37,32 @@ class GamesList extends React.Component {
   }
 
   onDeleteButtonClick(id) {
-    const games = this.state.games;
-    const newGames = games.filter(game => {
-      if (game.id != id) return game;
-    });
-    this.setState({
-      games: newGames
+    const URL = `http://localhost:3000/gamesList/${id}`;
+    const pageURL = "http://localhost:3000/gamesList";
+
+    fetch(URL, { method: "DELETE" }).then(() => {
+      this.fetchGamesData(`${pageURL}?_page=1&_limit=5`);
     });
   }
 
   onSaveButtonClick(game) {
-    const id = game.id;
-    const games = this.state.games;
-    const editedGame = games.filter(game => {
-      if ((game.id = id)) return game;
+    const { id } = game;
+    const fetchMethod = id === undefined ? "POST" : "PUT";
+    const URL =
+      id === undefined
+        ? "http://localhost:3000/gamesList"
+        : `http://localhost:3000/gamesList/${id}`;
+    const pageURL = "http://localhost:3000/gamesList";
+
+    fetch(URL, {
+      method: fetchMethod,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(game)
+    }).then(() => {
+      this.fetchGamesData(`${pageURL}?_page=1&_limit=5`);
     });
 
     this.setState({
-      games: games,
       activeGame: [],
       isPopupShown: false
     });
@@ -63,12 +70,12 @@ class GamesList extends React.Component {
 
   componentDidMount() {
     const URL = "http://localhost:3000/gamesList";
-    this.fetchGamesData(`${URL}?_page=0&_limit=2`);
+    this.fetchGamesData(`${URL}?_page=1&_limit=5`);
   }
 
   fetchGamesData(URL) {
     fetch(URL)
-      .then(games => games.json())
+      .then(res => res.json())
       .then(gamesData => {
         this.setState({
           games: gamesData
@@ -77,7 +84,7 @@ class GamesList extends React.Component {
   }
 
   render() {
-    const games = this.state.games;
+    const { games } = this.state;
     return (
       <div className="games-table-wrapper">
         <h2 className="games-table-title">Список популярных игр</h2>
