@@ -6,6 +6,12 @@ class TableRow extends React.Component {
 
     this.onDeleteGameClick = this.onDeleteGameClick.bind(this);
     this.onEditGameClick = this.onEditGameClick.bind(this);
+    this.onGameClick = this.onGameClick.bind(this);
+  }
+
+  onGameClick() {
+    const { game } = this.props;
+    this.props.onGameNameClick(game);
   }
 
   onDeleteGameClick() {
@@ -23,7 +29,9 @@ class TableRow extends React.Component {
 
     return (
       <tr>
-        <td className="games-table__game-name">{title}</td>
+        <td className="games-table__game-name" onClick={this.onGameClick}>
+          <span>{title}</span>
+        </td>
         <td className="games-table__table-btns">
           <button
             type="button"

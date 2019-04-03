@@ -16,6 +16,9 @@
   width: 80%;
   text-align: left;
 }
+.games-table__game-name span {
+  cursor: pointer;
+}
 .games-table__table-btns {
   max-width: 10%;
 }
