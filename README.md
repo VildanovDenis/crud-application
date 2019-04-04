@@ -8,7 +8,7 @@
 После разверните имитацию REST API командой `json-server --watch db.json`.
 Так же разверните приложение с помощью `npm start`.
 
-Для работы приложения имитация REST API должен быть развернут на [http://localhost:3000](http://localhost:3000), а само приложение [http://localhost:3001](http://localhost:3001).
+Для работы приложения, имитация REST API должена быть развернута на [http://localhost:3000](http://localhost:3000), а само приложение [http://localhost:3001](http://localhost:3001).
 Это будет сделано автоматически.
 
 ## Описание приложения.
