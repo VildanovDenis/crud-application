@@ -6,14 +6,14 @@ class GameInfo extends React.Component {
   render() {
     const { img, description, title, link } = this.props.game;
     const imgWrapperStyles =
-      img === undefined
+      img === ""
         ? { "font-size": "14px", padding: "40px" }
         : { "font-size": "0px" };
 
     return (
       <div className="game-info">
         <div className="game-info__image-wrapper" style={imgWrapperStyles}>
-          {img === undefined ? (
+          {img === "" ? (
             <span>Изображение данной игры не найдено =(</span>
           ) : (
             <img

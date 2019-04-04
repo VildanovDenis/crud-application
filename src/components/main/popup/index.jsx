@@ -8,13 +8,15 @@ class Popup extends React.Component {
     this.state = {
       gameName: props.game.title || "",
       gameDescription: props.game.description || "",
-      gameLink: props.game.link || ""
+      gameLink: props.game.link || "",
+      gameImg: props.game.img || ""
     };
 
     this.onNameInputChange = this.onNameInputChange.bind(this);
     this.onDescriptionInputChange = this.onDescriptionInputChange.bind(this);
     this.onLinkInputChange = this.onLinkInputChange.bind(this);
     this.onSaveGameClick = this.onSaveGameClick.bind(this);
+    this.onFileInputChange = this.onFileInputChange.bind(this);
   }
 
   onNameInputChange(event) {
@@ -35,12 +37,19 @@ class Popup extends React.Component {
     });
   }
 
+  onFileInputChange(event) {
+    this.setState({
+      gameImg: event.target.value
+    });
+  }
+
   onSaveGameClick() {
     const game = {
       id: this.props.game.id,
       title: this.state.gameName,
       description: this.state.gameDescription,
-      link: this.state.gameLink
+      link: this.state.gameLink,
+      img: this.state.gameImg
     };
 
     this.props.onSaveButtonClick(game);
@@ -75,6 +84,14 @@ class Popup extends React.Component {
             value={this.state.gameDescription}
             onChange={this.onDescriptionInputChange}
           />
+          <label class="game-modal__file-label">
+            <input
+              type="file"
+              accept=".png, .jpg, .jpeg"
+              className="game-modal__file"
+              onChange={this.onFileInputChange}
+            />
+          </label>
           <button
             type="button"
             className="game-modal__save-button"
