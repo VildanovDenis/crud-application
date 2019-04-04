@@ -1,5 +1,8 @@
 import React from "react";
 
+/**
+ * Шапка списка игр
+ */
 class TableHead extends React.Component {
   render() {
     return (

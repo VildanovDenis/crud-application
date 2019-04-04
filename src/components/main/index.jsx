@@ -8,6 +8,9 @@ import Paginate from "./paginate/index";
 
 import "./index.css";
 
+/**
+ * Главная страница со списком игр
+ */
 class GamesList extends React.Component {
   constructor(props) {
     super(props);

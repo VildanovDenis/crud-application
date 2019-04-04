@@ -2,6 +2,9 @@ import React from "react";
 
 import "./index.css";
 
+/**
+ * Модальное окно для редактирования/добавления игры
+ */
 class Popup extends React.Component {
   constructor(props) {
     super(props);

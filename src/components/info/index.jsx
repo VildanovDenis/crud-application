@@ -1,5 +1,8 @@
 import React from "react";
 
+/**
+ * Страница с информацией
+ */
 function Info() {
   return (
     <div className="wrapper">

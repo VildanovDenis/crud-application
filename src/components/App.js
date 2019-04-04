@@ -13,12 +13,11 @@ class App extends Component {
     return (
       <React.Fragment>
         <Header />
-        {/* <Switch>
-          <Route exact path="/" component={<GamesList />} />
-          <Route path="/Weather" component={<Weather />} />
-          <Route path="/Info" component={<Info />} />
-        </Switch> */}
-        <GamesList />
+        <Switch>
+          <Route exact path="/" component={GamesList} />
+          <Route path="/Weather" component={Weather} />
+          <Route path="/Info" component={Info} />
+        </Switch>
         <Footer />
       </React.Fragment>
     );

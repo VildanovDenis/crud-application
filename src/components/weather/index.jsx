@@ -1,5 +1,8 @@
 import React from "react";
 
+/**
+ * Страница с погодой
+ */
 export default function Weather() {
   return (
     <div className="wrapper">

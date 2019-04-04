@@ -1,5 +1,8 @@
 import React from "react";
 
+/**
+ * Список игр
+ */
 class TableRow extends React.Component {
   constructor(props) {
     super(props);

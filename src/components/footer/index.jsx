@@ -12,6 +12,7 @@ class Footer extends React.Component {
         <a
           href="https://reactjs.org/"
           target="_blank"
+          rel="noopener noreferrer"
           className="app-logo-wrapper"
         >
           <img
@@ -19,6 +20,7 @@ class Footer extends React.Component {
             width="64"
             height="64"
             className="App-logo"
+            alt="logo"
           />
           <h1 className="app-logo-title">React</h1>
         </a>
@@ -28,6 +30,7 @@ class Footer extends React.Component {
           <a
             href="https://github.com/VildanovDenis?tab=repositories"
             target="_blank"
+            rel="noopener noreferrer"
           >
             GitHub
           </a>

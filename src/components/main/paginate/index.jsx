@@ -1,8 +1,10 @@
 import React from "react";
 
 import "./index.css";
-import { stringify } from "querystring";
 
+/**
+ * Пагинация по списку игр
+ */
 class Paginate extends React.Component {
   constructor(props) {
     super(props);

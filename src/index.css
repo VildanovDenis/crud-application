@@ -20,6 +20,7 @@ ul {
 }
 .wrapper {
   width: 600px;
+  min-height: 80vh;
   padding: 50px;
   margin: 0 auto;
 }
