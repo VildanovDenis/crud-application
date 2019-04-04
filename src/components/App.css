@@ -15,9 +15,3 @@
     transform: rotate(360deg);
   }
 }
-
-.wrapper {
-  width: 600px;
-  padding: 50px;
-  margin: 0 auto;
-}

@@ -18,6 +18,14 @@ ul {
   margin: 0;
   list-style: none;
 }
+.wrapper {
+  width: 600px;
+  padding: 50px;
+  margin: 0 auto;
+}
+button {
+  font-family: "Roboto", sans-serif;
+}
 * {
   box-sizing: border-box;
 }

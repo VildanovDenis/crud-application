@@ -9,6 +9,7 @@ class GameInfo extends React.Component {
       img === undefined
         ? { "font-size": "14px", padding: "40px" }
         : { "font-size": "0px" };
+
     return (
       <div className="game-info">
         <div className="game-info__image-wrapper" style={imgWrapperStyles}>

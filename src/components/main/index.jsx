@@ -2,9 +2,11 @@ import React from "react";
 
 import TableHead from "./table-head/index";
 import TableRow from "./table-row/index";
-import "./index.css";
 import Popup from "./popup";
 import GameInfo from "./game-info";
+import Paginate from "./paginate/index";
+
+import "./index.css";
 
 class GamesList extends React.Component {
   constructor(props) {
@@ -13,7 +15,9 @@ class GamesList extends React.Component {
       isPopupShown: false,
       isGameInfoShown: false,
       activeGame: [],
-      games: []
+      games: [],
+      paginate: undefined,
+      currentPage: "1"
     };
 
     this.onAddButtonClick = this.onAddButtonClick.bind(this);
@@ -23,6 +27,7 @@ class GamesList extends React.Component {
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.onGameNameClick = this.onGameNameClick.bind(this);
     this.onBackArrowClick = this.onBackArrowClick.bind(this);
+    this.onPaginationButtonClick = this.onPaginationButtonClick.bind(this);
   }
 
   /**
@@ -76,7 +81,9 @@ class GamesList extends React.Component {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(game)
     }).then(() => {
-      this.fetchGamesData(`${pageURL}?_page=1&_limit=5`);
+      this.fetchGamesData(
+        `${pageURL}?_page=${this.state.currentPage}&_limit=5`
+      );
     });
 
     this.setState({
@@ -94,18 +101,49 @@ class GamesList extends React.Component {
     const pageURL = "http://localhost:3000/gamesList";
 
     fetch(URL, { method: "DELETE" }).then(() => {
-      this.fetchGamesData(`${pageURL}?_page=1&_limit=5`);
+      this.fetchGamesData(
+        `${pageURL}?_page=${this.state.currentPage}&_limit=5`
+      );
     });
   }
 
+  /**
+   * Хендлер для пагинации
+   */
+
+  onPaginationButtonClick(page) {
+    const URL = "http://localhost:3000/gamesList";
+    this.setState(
+      {
+        currentPage: page
+      },
+      this.fetchGamesData(`${URL}?_page=${page}&_limit=5`)
+    );
+  }
+
+  /**
+   * Жизненный цикл компонента
+   */
+
   componentDidMount() {
     const URL = "http://localhost:3000/gamesList";
-    this.fetchGamesData(`${URL}?_page=1&_limit=5`);
+    this.fetchGamesData(`${URL}?_page=${this.state.currentPage}&_limit=5`);
   }
+
+  /**
+   * Вспомогательные функции
+   */
 
   fetchGamesData(URL) {
     fetch(URL)
-      .then(res => res.json())
+      .then(res => {
+        var parse = require("parse-link-header");
+        var parsedPaginate = parse(res.headers.get("Link"));
+        this.setState({
+          paginate: parsedPaginate
+        });
+        return res.json();
+      })
       .then(gamesData => {
         this.setState({
           games: gamesData
@@ -136,6 +174,11 @@ class GamesList extends React.Component {
                 })}
               </tbody>
             </table>
+            <Paginate
+              paginate={this.state.paginate}
+              currentPage={this.state.currentPage}
+              onPaginationButtonClick={this.onPaginationButtonClick}
+            />
           </React.Fragment>
         ) : null}
 
