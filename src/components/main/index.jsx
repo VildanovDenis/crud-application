@@ -83,11 +83,15 @@ class GamesList extends React.Component {
       method: fetchMethod,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(game)
-    }).then(() => {
-      this.fetchGamesData(
-        `${pageURL}?_page=${this.state.currentPage}&_limit=5`
-      );
-    });
+    })
+      .then(() => {
+        this.fetchGamesData(
+          `${pageURL}?_page=${this.state.currentPage}&_limit=5`
+        );
+      })
+      .catch(error => {
+        console.log(error);
+      });
 
     this.setState({
       activeGame: [],
@@ -151,6 +155,9 @@ class GamesList extends React.Component {
         this.setState({
           games: gamesData
         });
+      })
+      .catch(error => {
+        console.log(error);
       });
   }
 

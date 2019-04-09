@@ -87,7 +87,7 @@ class Popup extends React.Component {
             value={this.state.gameDescription}
             onChange={this.onDescriptionInputChange}
           />
-          <label class="game-modal__file-label">
+          <label className="game-modal__file-label">
             <input
               type="file"
               accept=".png, .jpg, .jpeg"
