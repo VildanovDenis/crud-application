@@ -17,7 +17,10 @@ class Paginate extends React.Component {
   }
 
   render() {
-    return this.props.paginate === undefined ? null : (
+    return this.props.paginate === undefined ? null : this.props.paginate ===
+      null ? (
+      <span>Страница больше не существует</span>
+    ) : (
       <ul className="pagination">
         <li className="pagination__item pagination__item--first">
           <button

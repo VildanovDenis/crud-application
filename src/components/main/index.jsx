@@ -81,7 +81,11 @@ class GamesList extends React.Component {
 
     fetch(URL, {
       method: fetchMethod,
-      headers: { "Content-Type": "application/json" },
+      mode: "cors",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(game)
     })
       .then(() => {
@@ -142,7 +146,13 @@ class GamesList extends React.Component {
    */
 
   fetchGamesData(URL) {
-    fetch(URL)
+    fetch(URL, {
+      mode: "cors",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "multipart/form-data"
+      }
+    })
       .then(res => {
         var parse = require("parse-link-header");
         var parsedPaginate = parse(res.headers.get("Link"));
